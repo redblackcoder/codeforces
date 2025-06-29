@@ -20,6 +20,8 @@ public class Main {
             arrange(a, b, 0, operations);
             System.out.println(operations.size());
             operations.forEach(o -> System.out.println(o));
+            System.out.println(Arrays.toString(a));
+            System.out.println(Arrays.toString(b));
         }
     }
 
@@ -38,9 +40,9 @@ public class Main {
         if (a[s] > b[s]) {
             operations.add(swap(a, b, s));
 
-            for (int i = s; i < n - 1; i++) {
-                if (b[i] > b[i + 1]) {
-                    operations.add(swap(b, i, 2));
+            for (int i = n - 1; i > s; i--) {
+                if (b[i] < b[i - 1]) {
+                    operations.add(swap(b, i - 1, 2));
                 }
             }
         }
