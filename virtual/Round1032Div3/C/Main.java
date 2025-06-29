@@ -56,40 +56,54 @@ public class Main {
             }
         }
 
-        // System.out.println(Arrays.toString(rowCount));
-        // System.out.println(Arrays.toString(colCount));
+        //System.out.println(Arrays.toString(rowCount));
+        //System.out.println(Arrays.toString(colCount));
 
         final int finalMax = max;
         final List<int[]> maxPos = valuePosMap.get(max);
-        // maxPos.forEach(p -> System.out.println("(" + p[0] + "," + p[1] + ")"));
+        //maxPos.forEach(p -> System.out.println("(" + p[0] + "," + p[1] + ")"));
 
-        // rowCount
-        // 0 -> 8:1
-        // 1 -> 8:0
-        // 2 -> 8:1
         final int maxRowIdx = getMaxIdx(rowCount, finalMax);
-        rowCount[maxRowIdx].remove(finalMax);
-        maxPos.forEach(pos -> {
-            if (pos[0] == maxRowIdx) {
-                colCount[pos[1]].decrease(finalMax);
-            }
-        });
-        // System.out.println(Arrays.toString(rowCount));
-        // System.out.println(Arrays.toString(colCount));
-
-        // colCount
-        // 0 -> 8:1
-        // 1 -> 8:0
-        // 2 -> 8:1
         final int maxColIdx = getMaxIdx(colCount, finalMax);
-        colCount[maxColIdx].remove(finalMax);
-        maxPos.forEach(pos -> {
-            if (pos[1] == maxColIdx) {
-                rowCount[pos[0]].decrease(finalMax);
-            }
-        });
-        // System.out.println(Arrays.toString(rowCount));
-        // System.out.println(Arrays.toString(colCount));
+        if (rowCount[maxRowIdx].getCount(finalMax) > colCount[maxColIdx].getCount(finalMax)) {
+            rowCount[maxRowIdx].remove(finalMax);
+            maxPos.forEach(pos -> {
+                if (pos[0] == maxRowIdx) {
+                    colCount[pos[1]].decrease(finalMax);
+                }
+            });
+            //System.out.println(Arrays.toString(rowCount));
+            //System.out.println(Arrays.toString(colCount));
+
+            final int newMaxColIdx = getMaxIdx(colCount, finalMax);
+            colCount[newMaxColIdx].remove(finalMax);
+            maxPos.forEach(pos -> {
+                if (pos[1] == newMaxColIdx) {
+                    rowCount[pos[0]].decrease(finalMax);
+                }
+            });
+            //System.out.println(Arrays.toString(rowCount));
+            //System.out.println(Arrays.toString(colCount));
+        } else {
+            colCount[maxColIdx].remove(finalMax);
+            maxPos.forEach(pos -> {
+                if (pos[1] == maxColIdx) {
+                    rowCount[pos[0]].decrease(finalMax);
+                }
+            });
+            //System.out.println(Arrays.toString(rowCount));
+            //System.out.println(Arrays.toString(colCount));
+
+            final int newMaxRowIdx = getMaxIdx(rowCount, finalMax);
+            rowCount[newMaxRowIdx].remove(finalMax);
+            maxPos.forEach(pos -> {
+                if (pos[0] == newMaxRowIdx) {
+                    colCount[pos[1]].decrease(finalMax);
+                }
+            });
+            //System.out.println(Arrays.toString(rowCount));
+            //System.out.println(Arrays.toString(colCount));
+        }
 
         boolean anyMaxLeft = false;
         for (int i = 0; i < n; i++) {
