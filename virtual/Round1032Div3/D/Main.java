@@ -20,8 +20,8 @@ public class Main {
             arrange(a, b, 0, operations);
             System.out.println(operations.size());
             operations.forEach(o -> System.out.println(o));
-            System.out.println(Arrays.toString(a));
-            System.out.println(Arrays.toString(b));
+            // System.out.println(Arrays.toString(a));
+            // System.out.println(Arrays.toString(b));
         }
     }
 
