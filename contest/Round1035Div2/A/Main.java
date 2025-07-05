@@ -1,54 +1,5 @@
 import java.util.*;
 
-/**
-You are given two non-negative integers a, b. You can apply two types of operations on 𝑎 any number of times and in any order:
-
-a<-a+1. The cost of this operation is x;
-a<-axor1. The cost of this operation is y.
-
-Now you are asked to make a=b. If it's possible, output the minimum cost; otherwise, report it.
-
-Input
-Each test contains multiple test cases. The first line contains the number of test cases t
- (1<=t<=104
-). The description of the test cases follows.
-
-The only line of each test case contains four integers a,b,x,y
- (1<=a,b<=100,1<=x,y<=10^7
-) — the two integers given to you and the respective costs of two types of operations.
-
-Output
-For each test case, output an integer — the minimum cost to make a=b
-, or −1
- if it is impossible.
-
- E.g.
- Input
- 7
- 1 4 1 2
- 1 5 2 1
- 3 2 2 1
- 1 3 2 1
- 2 1 1 2
- 3 1 1 2
- 1 100 10000000 10000000
-
- Output
- 3
- 6
- 1
- 3
- -1
- -1
- 990000000
-
- -------------
- 2: 0010
- 1: 0001
-
- 2 xor 1 = 0010 xor 0001 = 0011 (3)
- 3 xor 1 = 0011 xor 0001 = 0010 (2)
- */
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
