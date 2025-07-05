@@ -1,24 +1,24 @@
 import java.util.*;
 
 /**
-You are given two non-negative integers 𝑎,𝑏. You can apply two types of operations on 𝑎 any number of times and in any order:
+You are given two non-negative integers a, b. You can apply two types of operations on 𝑎 any number of times and in any order:
 
-𝑎←𝑎+1. The cost of this operation is 𝑥;
-𝑎←𝑎⊕1, where ⊕ denotes the bitwise XOR operation. The cost of this operation is 𝑦.
+a<-a+1. The cost of this operation is x;
+a<-axor1. The cost of this operation is y.
 
-Now you are asked to make 𝑎=𝑏. If it's possible, output the minimum cost; otherwise, report it.
+Now you are asked to make a=b. If it's possible, output the minimum cost; otherwise, report it.
 
 Input
-Each test contains multiple test cases. The first line contains the number of test cases 𝑡
- (1≤𝑡≤104
+Each test contains multiple test cases. The first line contains the number of test cases t
+ (1<=t<=104
 ). The description of the test cases follows.
 
-The only line of each test case contains four integers 𝑎,𝑏,𝑥,𝑦
- (1≤𝑎,𝑏≤100,1≤𝑥,𝑦≤10^7
+The only line of each test case contains four integers a,b,x,y
+ (1<=a,b<=100,1<=x,y<=10^7
 ) — the two integers given to you and the respective costs of two types of operations.
 
 Output
-For each test case, output an integer — the minimum cost to make 𝑎=𝑏
+For each test case, output an integer — the minimum cost to make a=b
 , or −1
  if it is impossible.
 
